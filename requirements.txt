@@ -1,0 +1,8 @@
+stim==1.16.0
+pymatching==2.4.0
+sinter==1.16.0
+numpy>=2.0
+matplotlib>=3.9
+pytest>=8
+h5py>=3.14
+remotezip>=0.12

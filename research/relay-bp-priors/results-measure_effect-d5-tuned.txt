@@ -1,0 +1,4 @@
+fuite ancilla 1r       seed 101: published raises, crashfix 866, corrected 1302, pymatching 75, tuned-relay 377, tuned-pymatching 374 | crashfix/corrected 0.67 [0.62, 0.72], McNemar p = 6.5e-26
+fuite ancilla 1r       seed 102: published raises, crashfix 892, corrected 1298, pymatching 87, tuned-relay 413, tuned-pymatching 403 | crashfix/corrected 0.69 [0.64, 0.74], McNemar p = 1.7e-22
+fuite ancilla 1r       seed 103: published raises, crashfix 890, corrected 1253, pymatching 93, tuned-relay 392, tuned-pymatching 375 | crashfix/corrected 0.71 [0.66, 0.77], McNemar p = 1.2e-18
+fuite ancilla 1r       pooled: published raises TypeError; crashfix 2648/30000 = 8.827e-02 [8.511e-02, 9.153e-02]; corrected 3853/30000 = 1.284e-01 [1.247e-01, 1.323e-01]; pymatching 255/30000 = 8.500e-03 [7.522e-03, 9.604e-03]; tuned-relay 1182/30000 = 3.940e-02 [3.726e-02, 4.166e-02]; tuned-pymatching 1152/30000 = 3.840e-02 [3.628e-02, 4.063e-02]

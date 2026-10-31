@@ -1,0 +1,42 @@
+diff --git a/crates/relay_bp/src/bp/min_sum.rs b/crates/relay_bp/src/bp/min_sum.rs
+index 0b658af..ee860a4 100644
+--- a/crates/relay_bp/src/bp/min_sum.rs
++++ b/crates/relay_bp/src/bp/min_sum.rs
+@@ -49,6 +49,11 @@ impl Default for MinSumDecoderConfig {
+     }
+ }
+ 
++/// Smallest magnitude kept for a log prior ratio. A ratio of exactly 0 (prior 1/2)
++/// is replaced by this value, i.e. decided as "no error" unless the syndrome says
++/// otherwise.
++const ZERO_LOG_PRIOR_RATIO_EPS: f64 = 4e-5;
++
+ impl MinSumDecoderConfig {
+     pub fn prior_ratios(&self) -> Array1<f64> {
+         // A funky way of making (1-p)/p handle left to right type inference for arithmetic
+@@ -136,6 +141,16 @@ where
+             let updated_val = match val {
+                 f64::INFINITY => N::max_value(),
+                 _ => {
++                    // A prior of exactly 1/2 gives a log ratio of exactly 0. Every
++                    // min-sum message through such a variable then has magnitude 0,
++                    // its posterior stays exactly 0 and the hard decision below is
++                    // arbitrary. Treat it as "very slightly no error", as a prior of
++                    // 1/2 - 1e-5 would (ln((1 - p) / p) is about 4e-5).
++                    let val = if val.abs() < ZERO_LOG_PRIOR_RATIO_EPS {
++                        ZERO_LOG_PRIOR_RATIO_EPS
++                    } else {
++                        val
++                    };
+                     // Apply optional data scaling
+                     let prior = match config.data_scale_value {
+                         Some(scale_value) => scale_value * val,
+@@ -541,7 +556,7 @@ where
+ 
+     fn compute_hard_decision(&mut self) {
+         for (idx, posterior) in self.posterior_ratios.iter().enumerate() {
+-            self.decoding[idx] = Bit::from((*posterior) <= N::zero());
++            self.decoding[idx] = Bit::from((*posterior) < N::zero());
+         }
+         debug!("Posteriors: {:?}", self.posterior_ratios);
+         debug!("Hard decision: {:?}", self.decoding);

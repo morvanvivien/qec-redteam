@@ -1,0 +1,3 @@
+lsd_0 ordre 0: 244/100000, / PyMatching 1.11 [1.02 ; 1.22], McNemar p = 2.1e-02
+lsd_e ordre 2: 245/100000, / PyMatching 1.12 [1.01 ; 1.23], McNemar p = 2.9e-02
+lsd_e ordre 4: 253/100000, / PyMatching 1.16 [1.04 ; 1.28], McNemar p = 6.9e-03

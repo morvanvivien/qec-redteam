@@ -1,0 +1,10 @@
+d = 3, p = 0.002, 200 tirs par cas, graine 101, replica min-sum + mémoire gamma0 = 0.1, 80 itérations
+nominal : 78 arêtes, 0 à exactement 1/2, max 0.0299
+
+fuite ancilla centrale, round du milieu : 78 arêtes, 12 à exactement 1/2, touchant 7 détecteurs, au moins 2 colonne(s) à 1/2 par détecteur touché -> ensemble bloquant : OUI
+  a priori tels quels (1/2 -> rapport 0)  : messages vers S tous nuls à chaque itération : True, a posteriori de S tous nuls : True, syndrome satisfait après 80 itérations : 1/200
+  a priori plafonnés à 1/2 - 1e-5         : messages vers S tous nuls à chaque itération : False, a posteriori de S tous nuls : False, syndrome satisfait après 80 itérations : 79/200
+
+fuite donnée centrale, round du milieu : 78 arêtes, 14 à exactement 1/2, touchant 10 détecteurs, au moins 2 colonne(s) à 1/2 par détecteur touché -> ensemble bloquant : OUI
+  a priori tels quels (1/2 -> rapport 0)  : messages vers S tous nuls à chaque itération : True, a posteriori de S tous nuls : True, syndrome satisfait après 80 itérations : 0/200
+  a priori plafonnés à 1/2 - 1e-5         : messages vers S tous nuls à chaque itération : False, a posteriori de S tous nuls : False, syndrome satisfait après 80 itérations : 75/200

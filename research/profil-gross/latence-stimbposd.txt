@@ -1,0 +1,1 @@
+stimbposd nominal: construction 35.1 s, décodage par tir 26.97 à 28.50 s (3 tirs)

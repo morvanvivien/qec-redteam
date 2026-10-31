@@ -1,0 +1,16 @@
+nominal — d=3 p=0.002 base z — 60000 tirs, graine 43
+  pymatching         598 erreurs, 9.967e-03 [9.203e-03, 1.079e-02]
+  mwpf               506 erreurs, 8.433e-03 [7.732e-03, 9.197e-03] | mwpf/pymatching = 0.85 [0.80, 0.90], McNemar p = 3.2e-08
+  bposd              626 erreurs, 1.043e-02 [9.651e-03, 1.128e-02] | bposd/pymatching = 1.05 [0.99, 1.11], McNemar p = 1.5e-01
+  stimbposd          534 erreurs, 8.900e-03 [8.179e-03, 9.684e-03] | stimbposd/pymatching = 0.89 [0.84, 0.94], McNemar p = 7.1e-05
+  fusion-blossom     595 erreurs, 9.917e-03 [9.155e-03, 1.074e-02] | fusion-blossom/pymatching = 0.99 [0.96, 1.03], McNemar p = 8.6e-01
+  beliefmatching     552 erreurs, 9.200e-03 [8.467e-03, 9.996e-03] | beliefmatching/pymatching = 0.92 [0.88, 0.97], McNemar p = 1.7e-03
+  bplsd              863 erreurs, 1.438e-02 [1.346e-02, 1.537e-02] | bplsd/pymatching = 1.44 [1.35, 1.54], McNemar p = 9.9e-30
+diaphonie ZZ 3p — d=3 p=0.002 base z — 60000 tirs, graine 43
+  pymatching         645 erreurs, 1.075e-02 [9.956e-03, 1.161e-02]
+  mwpf               677 erreurs, 1.128e-02 [1.047e-02, 1.216e-02] | mwpf/pymatching = 1.05 [0.99, 1.11], McNemar p = 1.1e-01
+  bposd              784 erreurs, 1.307e-02 [1.219e-02, 1.401e-02] | bposd/pymatching = 1.22 [1.15, 1.29], McNemar p = 7.0e-11
+  stimbposd          682 erreurs, 1.137e-02 [1.055e-02, 1.225e-02] | stimbposd/pymatching = 1.06 [1.00, 1.12], McNemar p = 4.6e-02
+  fusion-blossom     648 erreurs, 1.080e-02 [1.000e-02, 1.166e-02] | fusion-blossom/pymatching = 1.00 [0.97, 1.04], McNemar p = 8.6e-01
+  beliefmatching     635 erreurs, 1.058e-02 [9.795e-03, 1.143e-02] | beliefmatching/pymatching = 0.98 [0.94, 1.03], McNemar p = 5.6e-01
+  bplsd             1107 erreurs, 1.845e-02 [1.740e-02, 1.956e-02] | bplsd/pymatching = 1.72 [1.61, 1.83], McNemar p = 1.4e-66

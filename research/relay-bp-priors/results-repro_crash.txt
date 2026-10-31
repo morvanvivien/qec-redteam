@@ -1,0 +1,2 @@
+largest edge prior after from_dem: 2.006 (a probability combined from independent mechanisms never exceeds 0.5)
+TypeError: argument 'detectors': 'matrix' object is not an instance of 'ndarray'

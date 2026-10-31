@@ -1,0 +1,6 @@
+### relay-bp — profil de robustesse QEC v0.1 (gross)
+
+| Épreuve | Verdict | Note | Détail |
+|---|---|---|---|
+| E1 Tenue | réussie | — | — |
+| E2 Cohérence | échouée | — | informé significativement pire que réglé |

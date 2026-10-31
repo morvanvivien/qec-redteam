@@ -1,0 +1,40 @@
+Environnement des résultats *-core-fix* et *-windows-build* (travail 2, correctif du cœur relay-bp)
+Date : 2026-10-13T00:11Z (UTC)
+Machine : poste Windows 10 Pro 19045 (aucun Linux joignable : WSL non installé, pas de Docker, isolation distante retombée en local), 6 threads, CPU Intel(R) Core(TM) i5-8500 CPU @ 3.00GHz
+Shell : MINGW64_NT-10.0-19045 host 3.6.7-fb42d713.x86_64 2026-03-29 11:44 UTC x86_64 Msys
+Python : Python 3.14.7 (runtime du Python install manager)
+Rust : rustc 1.99.0 (b940084d7 2026-09-28), cargo 1.99.0 (5f94df478 2026-08-27), hôte x86_64-pc-windows-gnu (rustup minimal en espace utilisateur, pas de MSVC)
+maturin : maturin 1.15.0
+
+Sources relay-bp : sdist PyPI relay_bp-0.2.2.tar.gz, sha256 be47a267b87f20bf2545cf744646c5f6abbbac5425f4221586449f9f3355d892
+  .venv      : roue construite depuis la sdist NON patchée (pas de roue Windows publiée) -> results-repro_half_prior-pypi-windows-build.txt
+  .venv-core : roue construite depuis la sdist + fix-zero-llr-core.patch -> results-repro_half_prior-core-fix.txt, results-measure_effect-d5-core-fix.txt
+  cargo test -p relay-bp --release sur l'arbre patché : 13 tests amont, 13 ok
+  sha256 roue non patchée : ae8680ff9d645e315abf6f98eabcbba6650265c7d0376f10a1dfc8804f80f385
+  sha256 roue patchée     : 30fa997bf6ec9f4aea3223217c5f3de05b8af2e65310c38a4f2fea6c916be467
+
+Écarts avec requirements-decoders.txt : scipy 1.18.1 (1.17.1 sans roue cp314), beliefmatching installé avec --no-deps (il exige numpy<=2.2.6, sans roue cp314), ldpc 2.4.1 ajouté (dépendance de beliefmatching) ; tesseract-decoder, mwpf, fusion-blossom, stimbposd non installés (inutiles au travail 2).
+pytest -q dans .venv : 114 ok, 1 sauté, 4 échecs = les 3 décodeurs non installés (fusion-blossom, mwpf, stimbposd) et test_duel qui dépend de fusion-blossom.
+
+pip list .venv :
+beliefmatching     0.2.0
+ldpc               2.4.1
+maturin            1.15.0
+numpy              2.5.4
+PyMatching         2.4.0
+pytest             9.1.1
+relay-bp           0.2.2
+scipy              1.18.1
+sinter             1.16.0
+stim               1.16.0
+
+pip list .venv-core :
+beliefmatching     0.2.0
+ldpc               2.4.1
+numpy              2.5.4
+PyMatching         2.4.0
+pytest             9.1.1
+relay-bp           0.2.2
+scipy              1.18.1
+sinter             1.16.0
+stim               1.16.0

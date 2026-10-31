@@ -1,0 +1,57 @@
+--- a/src_cpp/osd_dense.hpp
++++ b/src_cpp/osd_dense.hpp
+@@ -81,16 +81,15 @@
+                     this->osd_candidate_strings.push_back(osd_candidate);
+                 }
+ 
+-                for (auto i = 0; i < this->osd_order; i++) {
+-                    for (auto j = 0; j < this->osd_order; j++) {
+-                        if (j <= i) continue;
+-                        if (k > 0) {
+-                            std::vector<uint8_t> osd_candidate;
+-                            osd_candidate.resize(k, 0);
+-                            osd_candidate[i] = 1;
+-                            osd_candidate[j] = 1;
+-                            this->osd_candidate_strings.push_back(osd_candidate);
+-                        }
++                // Pairs are drawn from the first osd_order non-pivot columns, and there are only k of them.
++                const int pair_limit = std::min(this->osd_order, this->k);
++                for (auto i = 0; i < pair_limit; i++) {
++                    for (auto j = i + 1; j < pair_limit; j++) {
++                        std::vector<uint8_t> osd_candidate;
++                        osd_candidate.resize(k, 0);
++                        osd_candidate[i] = 1;
++                        osd_candidate[j] = 1;
++                        this->osd_candidate_strings.push_back(osd_candidate);
+                     }
+                 }
+             }
+--- a/src_cpp/osd.hpp
++++ b/src_cpp/osd.hpp
+@@ -1,6 +1,7 @@
+ #ifndef BPOSD_H
+ #define BPOSD_H
+ 
++#include <algorithm>
+ #include <vector>
+ #include <memory>
+ #include <iterator>
+@@ -87,13 +88,14 @@
+                     this->osd_candidate_strings.push_back(osd_candidate);
+                 }
+ 
+-                for(int i = 0; i<this->osd_order;i++){
+-                    for(int j = 0; j<this->osd_order; j++){
+-                        if(j<=i) continue;
++                // Pairs are drawn from the first osd_order non-pivot columns, and there are only k of them.
++                const int pair_limit = std::min(this->osd_order, this->k);
++                for(int i = 0; i<pair_limit;i++){
++                    for(int j = i+1; j<pair_limit; j++){
+                         std::vector<uint8_t> osd_candidate;
+                         osd_candidate.resize(k,0);
+                         osd_candidate[i]=1;
+-                        osd_candidate[j]=1; 
++                        osd_candidate[j]=1;
+                         this->osd_candidate_strings.push_back(osd_candidate);
+                     }
+                 }

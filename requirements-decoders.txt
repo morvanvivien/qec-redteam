@@ -1,0 +1,11 @@
+# Décodeurs publics de la brique 2, versions installées le 29/09/2026 sous Linux
+# (Python 3.11.15). relay-bp et tesseract-decoder n'ont pas de roue Windows.
+-r requirements.txt
+ldpc==2.4.1
+stimbposd==0.2.0
+beliefmatching==0.2.0
+relay-bp==0.2.2
+tesseract-decoder==0.1.1.dev20260822020007
+mwpf==0.2.12
+fusion-blossom==0.2.13
+scipy==1.17.1

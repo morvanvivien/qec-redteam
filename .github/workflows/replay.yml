@@ -1,0 +1,31 @@
+name: replay confirmed defects
+# Replays, on a clean machine, the command recorded for every confirmed defect in docs/registre.json.
+on:
+  workflow_dispatch:
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install in the virtual environment the commands expect
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -r requirements-decoders.txt
+      - name: Replay
+        run: |
+          set +e
+          jq -r '.entrees[] | select(.categorie == "defaut_confirme") | .id + "\t" + .rejeu' docs/registre.json |
+          while IFS=$'\t' read -r id command; do
+            {
+              echo "### $id"
+              echo '```'
+              echo "\$ $command"
+              eval "timeout 3000 $command" 2>&1 | tail -25
+              echo "exit ${PIPESTATUS[0]}"
+              echo '```'
+            } | tee -a "$GITHUB_STEP_SUMMARY"
+          done

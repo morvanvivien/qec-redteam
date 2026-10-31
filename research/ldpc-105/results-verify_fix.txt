@@ -1,0 +1,21 @@
+﻿1. Bounds-checked builds, order 10, 50 decodes
+   path      k   original              patched
+   dense     1   TRAP 0xc000001d       ok        
+   dense     2   TRAP 0xc000001d       ok        
+   dense     5   TRAP 0xc000001d       ok        
+   dense     9   TRAP 0xc000001d       ok        
+   dense    10   ok                    ok        
+   dense    11   ok                    ok        
+   dense    20   ok                    ok        
+   sparse    1   TRAP 0xc000001d       ok        
+   sparse    2   TRAP 0xc000001d       ok        
+   sparse    5   TRAP 0xc000001d       ok        
+   sparse    9   TRAP 0xc000001d       ok        
+   sparse   10   ok                    ok        
+   sparse   11   ok                    ok        
+   sparse   20   ok                    ok        
+
+2. Unchecked builds, identical output wherever the original survives, 500 decodes
+   46 cells compared, 46 identical, 10 skipped because the original crashed
+
+RESULT: all checks passed

@@ -1,0 +1,2 @@
+fuite ancilla 1r       seed 101: published raises, crashfix 866, corrected 1301, pymatching 75, tuned-relay 377, tuned-pymatching 374 | crashfix/corrected 0.67 [0.62, 0.72], McNemar p = 1.3e-25
+fuite ancilla 1r       seed 102: published raises, crashfix 892, corrected 1303, pymatching 87, tuned-relay 413, tuned-pymatching 403 | crashfix/corrected 0.68 [0.63, 0.74], McNemar p = 9.7e-23

@@ -1,0 +1,3 @@
+nominal              low confidence 0/1500 (wrong among them 0); wrong overall 1
+tout x3              low confidence 0/1500 (wrong among them 0); wrong overall 94
+ancilla chaude x100  low confidence 0/1500 (wrong among them 0); wrong overall 122

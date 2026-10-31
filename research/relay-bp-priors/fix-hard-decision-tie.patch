@@ -1,0 +1,13 @@
+diff --git a/crates/relay_bp/src/bp/min_sum.rs b/crates/relay_bp/src/bp/min_sum.rs
+index 2a1d94f..27a2a81 100644
+--- a/crates/relay_bp/src/bp/min_sum.rs
++++ b/crates/relay_bp/src/bp/min_sum.rs
+@@ -615,7 +615,7 @@ where
+ 
+     fn compute_hard_decision(&mut self) {
+         for (idx, posterior) in self.posterior_ratios.iter().enumerate() {
+-            self.decoding[idx] = Bit::from((*posterior) <= N::zero());
++            self.decoding[idx] = Bit::from((*posterior) < N::zero());
+         }
+         debug!("Posteriors: {:?}", self.posterior_ratios);
+         debug!("Hard decision: {:?}", self.decoding);

@@ -1,0 +1,37 @@
+{
+ "decodeur": "relay-bp",
+ "version_profil": "0.1",
+ "mode": "gross",
+ "epreuves": [
+  {
+   "code": "E1",
+   "nom": "Tenue",
+   "verdict": "réussie",
+   "note": "",
+   "mesures": {
+    "déterministe": true,
+    "syndrome nul, DEM nominal": true,
+    "DEM saturé décodé": true,
+    "syndrome nul, DEM saturé": true
+   },
+   "detail": ""
+  },
+  {
+   "code": "E2",
+   "nom": "Cohérence",
+   "verdict": "échouée",
+   "note": "",
+   "mesures": {
+    "tirs": 60,
+    "erreurs réglé": 0,
+    "erreurs informé": 14,
+    "informé / réglé": Infinity,
+    "IC 95 %": [
+     Infinity,
+     Infinity
+    ]
+   },
+   "detail": "informé significativement pire que réglé"
+  }
+ ]
+}

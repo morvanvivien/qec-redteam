@@ -1,0 +1,10 @@
+
+mémoire Z, d = 5, p = 0,002 : 72 détecteurs dans la composante de l'observable
+  biais Z eta=10     rapport vrai / nominal : temporelle 60 arêtes, médiane 0.898 [0.832 ; 0.939], spatiale 90 arêtes, médiane 0.131 [0.124 ; 0.875], diagonale 115 arêtes, médiane 0.114 [0.114 ; 0.115], bord 36 arêtes, médiane 0.126 [0.124 ; 0.797]
+  biais Z eta=100    rapport vrai / nominal : temporelle 60 arêtes, médiane 0.886 [0.812 ; 0.932], spatiale 90 arêtes, médiane 0.014 [0.013 ; 0.860], diagonale 115 arêtes, médiane 0.012 [0.012 ; 0.013], bord 36 arêtes, médiane 0.014 [0.014 ; 0.774]
+  biais Z eta=1000   rapport vrai / nominal : temporelle 60 arêtes, médiane 0.885 [0.810 ; 0.931], spatiale 90 arêtes, médiane 0.001 [0.001 ; 0.858], diagonale 115 arêtes, médiane 0.001 [0.001 ; 0.001], bord 36 arêtes, médiane 0.001 [0.001 ; 0.771]
+
+mémoire X, d = 5, p = 0,002 : 72 détecteurs dans la composante de l'observable
+  biais Z eta=10     rapport vrai / nominal : temporelle 60 arêtes, médiane 1.017 [1.011 ; 1.033], spatiale 90 arêtes, médiane 1.307 [1.037 ; 1.376], diagonale 115 arêtes, médiane 1.221 [1.220 ; 1.237], bord 36 arêtes, médiane 1.300 [1.065 ; 1.314]
+  biais Z eta=100    rapport vrai / nominal : temporelle 60 arêtes, médiane 1.019 [1.013 ; 1.036], spatiale 90 arêtes, médiane 1.347 [1.042 ; 1.428], diagonale 115 arêtes, médiane 1.246 [1.246 ; 1.265], bord 36 arêtes, médiane 1.338 [1.073 ; 1.355]
+  biais Z eta=1000   rapport vrai / nominal : temporelle 60 arêtes, médiane 1.019 [1.013 ; 1.037], spatiale 90 arêtes, médiane 1.351 [1.042 ; 1.433], diagonale 115 arêtes, médiane 1.249 [1.249 ; 1.268], bord 36 arêtes, médiane 1.343 [1.074 ; 1.360]

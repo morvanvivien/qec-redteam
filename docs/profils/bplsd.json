@@ -1,0 +1,113 @@
+{
+ "decodeur": "bplsd",
+ "version_profil": "0.1",
+ "epreuves": [
+  {
+   "code": "E1",
+   "nom": "Tenue",
+   "verdict": "réussie",
+   "note": "",
+   "mesures": {
+    "déterministe": true,
+    "syndrome nul, DEM nominal": true,
+    "DEM saturé décodé": true,
+    "syndrome nul, DEM saturé": true
+   },
+   "detail": ""
+  },
+  {
+   "code": "E2",
+   "nom": "Cohérence",
+   "verdict": "réussie",
+   "note": "",
+   "mesures": {
+    "tirs": 4000,
+    "erreurs réglé": 1442,
+    "erreurs informé": 262,
+    "informé / réglé": 0.182,
+    "IC 95 %": [
+     0.16,
+     0.204
+    ]
+   },
+   "detail": ""
+  },
+  {
+   "code": "E3",
+   "nom": "Désaccord",
+   "verdict": "réussie",
+   "note": "C",
+   "mesures": {
+    "ancilla chaude x100": {
+     "pénalité": 2.94,
+     "IC 95 %": [
+      2.44,
+      3.61
+     ],
+     "tirs": 2000
+    },
+    "fuite ancilla 1r": {
+     "pénalité": 2.57,
+     "IC 95 %": [
+      2.08,
+      3.25
+     ],
+     "tirs": 4000
+    },
+    "diaphonie ZZ 3p": {
+     "pénalité": 1.57,
+     "IC 95 %": [
+      1.26,
+      1.98
+     ],
+     "tirs": 6000
+    }
+   },
+   "detail": "pire pénalité 2.94"
+  },
+  {
+   "code": "E4",
+   "nom": "Classement",
+   "verdict": "réussie",
+   "note": "C",
+   "mesures": {
+    "nominal": {
+     "/ PyMatching": 2.03,
+     "IC 95 %": [
+      1.64,
+      2.55
+     ]
+    },
+    "diaphonie ZZ 3p": {
+     "/ PyMatching": 4.49,
+     "IC 95 %": [
+      3.72,
+      5.55
+     ]
+    }
+   },
+   "detail": "glissement relatif à PyMatching x2.21"
+  },
+  {
+   "code": "E5",
+   "nom": "Latence",
+   "verdict": "réussie",
+   "note": "B",
+   "mesures": {
+    "nominal": {
+     "p50 µs": 235,
+     "p99 µs": 4875,
+     "max µs": 7220,
+     "plancher µs": 150.5
+    },
+    "tout x3": {
+     "p50 µs": 3516,
+     "p99 µs": 12299,
+     "max µs": 25115,
+     "plancher µs": 143.8
+    }
+   },
+   "detail": "p99 perturbé / p99 nominal x2.5"
+  }
+ ]
+}

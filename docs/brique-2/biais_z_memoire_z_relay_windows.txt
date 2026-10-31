@@ -1,0 +1,4 @@
+nominal                  relay-bp           202/40000   réglé 5.050e-03 informé 5.050e-03 pénalité 1.00 [1.00, 1.00] 22s
+biais Z eta=10           relay-bp           200/330000  réglé 6.061e-04 informé 4.939e-04 pénalité 1.23 [1.13, 1.34] 141s
+biais Z eta=100          relay-bp           200/470000  réglé 4.255e-04 informé 3.298e-04 pénalité 1.29 [1.19, 1.41] 186s
+biais Z eta=1000         relay-bp           200/476000  réglé 4.202e-04 informé 3.025e-04 pénalité 1.39 [1.27, 1.53] 178s

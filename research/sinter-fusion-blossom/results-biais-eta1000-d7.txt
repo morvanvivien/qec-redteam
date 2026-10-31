@@ -1,0 +1,8 @@
+d=7 p=0.002 biais Z eta=1000, X memory: 11362 edges from sinter, 1558 distinct detector pairs, 1512 pairs with parallel edges
+  seed 11: sinter fusion-blossom 114, merged 111, pymatching 111 / 26000; sinter-only 13, merged-only 10
+  seed 12: sinter fusion-blossom 96, merged 86, pymatching 86 / 26000; sinter-only 13, merged-only 3
+  seed 13: sinter fusion-blossom 111, merged 104, pymatching 104 / 26000; sinter-only 10, merged-only 3
+  pooled sinter     321/78000 = 4.1154e-03 [3.6899e-03, 4.5897e-03]
+  pooled merged     301/78000 = 3.8590e-03 [3.4476e-03, 4.3192e-03]
+  pooled pymatching 301/78000 = 3.8590e-03 [3.4476e-03, 4.3192e-03]
+  pooled sinter / merged = 1.066; McNemar p = 7.8e-03

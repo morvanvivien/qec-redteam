@@ -1,0 +1,12 @@
+{"batch": 0, "shots": 250, "tesseract": 7, "pymatching": 1, "both": 1}
+{"batch": 4, "shots": 250, "tesseract": 1, "pymatching": 1, "both": 0}
+{"batch": 3, "shots": 250, "tesseract": 6, "pymatching": 2, "both": 2}
+{"batch": 1, "shots": 250, "tesseract": 7, "pymatching": 5, "both": 4}
+{"batch": 2, "shots": 250, "tesseract": 2, "pymatching": 1, "both": 0}
+{"batch": 8, "shots": 250, "tesseract": 5, "pymatching": 5, "both": 2}
+{"batch": 6, "shots": 250, "tesseract": 7, "pymatching": 2, "both": 1}
+{"batch": 5, "shots": 250, "tesseract": 2, "pymatching": 2, "both": 1}
+{"batch": 7, "shots": 250, "tesseract": 4, "pymatching": 5, "both": 1}
+{"batch": 9, "shots": 250, "tesseract": 8, "pymatching": 0, "both": 0}
+{"batch": 11, "shots": 250, "tesseract": 1, "pymatching": 1, "both": 0}
+{"batch": 10, "shots": 250, "tesseract": 8, "pymatching": 4, "both": 1}

@@ -1,0 +1,96 @@
+{
+ "decodeur": "relay-bp",
+ "version_profil": "0.1",
+ "epreuves": [
+  {
+   "code": "E1",
+   "nom": "Tenue",
+   "verdict": "échouée",
+   "note": "",
+   "mesures": {
+    "déterministe": true,
+    "syndrome nul, DEM nominal": true,
+    "DEM saturé décodé": false
+   },
+   "detail": "TypeError: argument 'detectors': 'matrix' object is not an instance of 'ndarray'"
+  },
+  {
+   "code": "E2",
+   "nom": "Cohérence",
+   "verdict": "non mesurable",
+   "note": "",
+   "mesures": {},
+   "detail": "TypeError: argument 'detectors': 'matrix' object is not an instance of 'ndarray'"
+  },
+  {
+   "code": "E3",
+   "nom": "Désaccord",
+   "verdict": "non mesurable",
+   "note": "C",
+   "mesures": {
+    "ancilla chaude x100": {
+     "pénalité": 2.58,
+     "IC 95 %": [
+      2.13,
+      3.16
+     ],
+     "tirs": 2000
+    },
+    "fuite ancilla 1r": "TypeError",
+    "diaphonie ZZ 3p": {
+     "pénalité": 0.95,
+     "IC 95 %": [
+      0.84,
+      1.08
+     ],
+     "tirs": 20000
+    }
+   },
+   "detail": "pire pénalité 2.58"
+  },
+  {
+   "code": "E4",
+   "nom": "Classement",
+   "verdict": "réussie",
+   "note": "A",
+   "mesures": {
+    "nominal": {
+     "/ PyMatching": 1.19,
+     "IC 95 %": [
+      1.06,
+      1.35
+     ]
+    },
+    "diaphonie ZZ 3p": {
+     "/ PyMatching": 1.05,
+     "IC 95 %": [
+      0.94,
+      1.18
+     ]
+    }
+   },
+   "detail": "glissement relatif à PyMatching x0.88"
+  },
+  {
+   "code": "E5",
+   "nom": "Latence",
+   "verdict": "réussie",
+   "note": "B",
+   "mesures": {
+    "nominal": {
+     "p50 µs": 121,
+     "p99 µs": 1869,
+     "max µs": 4666,
+     "plancher µs": 81.2
+    },
+    "tout x3": {
+     "p50 µs": 379,
+     "p99 µs": 6973,
+     "max µs": 46418,
+     "plancher µs": 58.6
+    }
+   },
+   "detail": "p99 perturbé / p99 nominal x3.7"
+  }
+ ]
+}

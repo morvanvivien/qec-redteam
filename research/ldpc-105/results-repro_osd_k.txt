@@ -1,0 +1,38 @@
+﻿ldpc 2.4.1, Python 3.14.7, win32
+
+BpOsdDecoder, osd_method='osd_cs', osd_order=64
+  k=1    CRASH (exit code 0xc0000374)
+  k=2    CRASH (exit code 0xc0000374)
+  k=4    CRASH (exit code 0xc0000374)
+  k=8    CRASH (exit code 0xc0000374)
+  k=16   CRASH (exit code 0xc0000005)
+  k=24   CRASH (exit code 0xc0000374)
+  k=32   CRASH (exit code 0xc0000374)
+  k=48   CRASH (exit code 0xc0000374)
+  k=60   clean
+  k=63   clean
+  k=64   clean
+  k=65   clean
+  k=80   clean
+  k=120  clean
+
+BpOsdDecoder, osd_method='osd_cs', osd_order=16
+  k=1    CRASH (exit code 0xc0000374)
+  k=2    CRASH (exit code 0xc0000374)
+  k=4    CRASH (exit code 0xc0000374)
+  k=8    CRASH (exit code 0xc0000005)
+  k=16   clean
+  k=24   clean
+  k=32   clean
+  k=48   clean
+  k=60   clean
+  k=63   clean
+  k=64   clean
+  k=65   clean
+  k=80   clean
+  k=120  clean
+
+Controls at k=1
+  osd_e  order 10  clean
+  osd_cs order 1   clean
+  osd_cs order 0   clean

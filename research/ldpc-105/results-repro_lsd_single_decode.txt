@@ -1,0 +1,5 @@
+﻿ldpc 2.4.1, Python 3.14.7, win32
+shot 29: one decode with lsd_cs order 10 exits with 0xc0000374
+  same shot, lsd_cs order 1: clean
+  same shot, lsd_e order 10: clean
+  same shot, lsd_0 order 0: clean

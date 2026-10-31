@@ -1,0 +1,8 @@
+nominal — d=5 p=0.002 base z — 40000 tirs, graine 32
+  pymatching         214 erreurs, 5.350e-03 [4.681e-03, 6.114e-03]
+  mwpf               140 erreurs, 3.500e-03 [2.967e-03, 4.128e-03] | mwpf/pymatching = 0.65 [0.57, 0.75], McNemar p = 4.9e-10
+  bposd              174 erreurs, 4.350e-03 [3.751e-03, 5.044e-03] | bposd/pymatching = 0.81 [0.71, 0.92], McNemar p = 2.0e-03
+diaphonie ZZ 3p — d=5 p=0.002 base z — 40000 tirs, graine 32
+  pymatching         184 erreurs, 4.600e-03 [3.983e-03, 5.312e-03]
+  mwpf               466 erreurs, 1.165e-02 [1.064e-02, 1.275e-02] | mwpf/pymatching = 2.53 [2.21, 2.94], McNemar p = 3.1e-43
+  bposd              450 erreurs, 1.125e-02 [1.026e-02, 1.233e-02] | bposd/pymatching = 2.45 [2.14, 2.82], McNemar p = 9.1e-43

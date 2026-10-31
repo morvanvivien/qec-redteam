@@ -1,0 +1,4 @@
+diaphonie ZZ 3p d=7 p=0.003 seed 42: 3000 shots, 12 batches
+  pymatching   29 errors, 9.667e-03 [6.739e-03, 1.385e-02]
+  tesseract    58 errors, 1.933e-02 [1.499e-02, 2.491e-02]
+  tesseract/pymatching = 2.00 [1.40, 3.04], McNemar p = 2.6e-04

@@ -1,0 +1,15 @@
+
+mémoire Z, biais Z eta=10, facteurs médians temporelle 0.8981, spatiale 0.1307, diagonale 0.1136, bord 0.1258, 900000 tirs (graines [11, 12, 13])
+  réglé      424 erreurs, 4.711e-04 [4.284e-04, 5.181e-04] | réglé/informé = 1.155 [1.102, 1.214], McNemar p = 3.0e-09
+  hybride    692 erreurs, 7.689e-04 [7.137e-04, 8.283e-04] | hybride/informé = 1.886 [1.750, 2.040], McNemar p = 4.1e-71
+  informé    367 erreurs, 4.078e-04 [3.681e-04, 4.517e-04]
+
+mémoire Z, biais Z eta=100, facteurs médians temporelle 0.8860, spatiale 0.0142, diagonale 0.0124, bord 0.0137, 900000 tirs (graines [11, 12, 13])
+  réglé      331 erreurs, 3.678e-04 [3.302e-04, 4.096e-04] | réglé/informé = 1.268 [1.195, 1.352], McNemar p = 5.1e-16
+  hybride    484 erreurs, 5.378e-04 [4.920e-04, 5.879e-04] | hybride/informé = 1.854 [1.705, 2.030], McNemar p = 2.4e-56
+  informé    261 erreurs, 2.900e-04 [2.569e-04, 3.274e-04]
+
+mémoire Z, biais Z eta=1000, facteurs médians temporelle 0.8846, spatiale 0.0014, diagonale 0.0012, bord 0.0014, 900000 tirs (graines [11, 12, 13])
+  réglé      321 erreurs, 3.567e-04 [3.197e-04, 3.979e-04] | réglé/informé = 1.269 [1.202, 1.346], McNemar p = 6.8e-21
+  hybride    483 erreurs, 5.367e-04 [4.909e-04, 5.867e-04] | hybride/informé = 1.909 [1.756, 2.088], McNemar p = 2.0e-66
+  informé    253 erreurs, 2.811e-04 [2.485e-04, 3.179e-04]

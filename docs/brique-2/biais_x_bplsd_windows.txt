@@ -1,0 +1,4 @@
+nominal                  bplsd              201/26000   réglé 7.731e-03 informé 7.731e-03 pénalité 1.00 [1.00, 1.00] 52s
+biais Z eta=10           bplsd              201/22000   réglé 9.136e-03 informé 9.318e-03 pénalité 0.98 [0.88, 1.09] 26s
+biais Z eta=100          bplsd              215/22000   réglé 9.773e-03 informé 9.318e-03 pénalité 1.05 [0.96, 1.15] 25s
+biais Z eta=1000         bplsd              209/20000   réglé 1.045e-02 informé 9.450e-03 pénalité 1.11 [1.01, 1.21] 22s

@@ -1,0 +1,11 @@
+beliefmatching  E1 pass                                                         E2 pass
+bplsd           E1 pass                                                         E2 pass
+bposd           E1 pass                                                         E2 pass
+fusion-blossom  E1 pass                                                         E2 pass
+mwpf            E1 pass                                                         E2 pass
+pymatching      E1 pass                                                         E2 pass
+relay-bp        E1 FAIL (TypeError: argument 'detectors': 'matrix' object is not an instance of 'ndarray') E2 FAIL (TypeError: argument 'detectors': 'matrix' object is not an instance of 'ndarray')
+stimbposd       E1 pass                                                         E2 pass
+tesseract       E1 pass                                                         E2 pass
+pymatching-correlated   E1 pass   E2 pass   (sinter built-in)
+hypergraph_union_find   E1 pass   E2 pass   (sinter built-in)

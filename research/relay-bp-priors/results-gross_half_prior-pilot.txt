@@ -1,0 +1,4 @@
+gross code p=0.003 « fuite ancilla » (ancilla 144 rendue aléatoire au round 6), graine 5, 30 tirs, colonnes à 1/2 : 59
+  informed  erreurs 14/30 = 0.467 [0.302, 0.639], échecs de convergence 30, itérations médiane 3680 max 3680, secondes par tir médiane 11.27 max 12.09
+  clamped   erreurs 0/30 = 0.000 [0.000, 0.114], échecs de convergence 0, itérations médiane 470 max 3661, secondes par tir médiane 1.49 max 10.82
+  tuned     erreurs 0/30 = 0.000 [0.000, 0.114], échecs de convergence 0, itérations médiane 368 max 2407, secondes par tir médiane 1.22 max 7.81

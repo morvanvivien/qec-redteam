@@ -1,0 +1,2 @@
+tesseract nominal: construction 3.6 s, décodage par tir 19.79 à 99.78 s (3 tirs)
+tesseract ancilla aléatoire: construction 3.3 s, décodage par tir 85.16 à 97.89 s (3 tirs)

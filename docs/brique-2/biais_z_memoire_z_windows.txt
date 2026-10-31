@@ -1,0 +1,28 @@
+nominal                  pymatching         203/46000   réglé 4.413e-03 informé 4.413e-03 pénalité 1.00 [1.00, 1.00] 0s
+nominal                  fusion-blossom     206/44000   réglé 4.682e-03 informé 4.682e-03 pénalité 1.00 [1.00, 1.00] 7s
+nominal                  beliefmatching     202/64000   réglé 3.156e-03 informé 3.156e-03 pénalité 1.00 [1.00, 1.00] 228s
+nominal                  bposd              203/50000   réglé 4.060e-03 informé 4.060e-03 pénalité 1.00 [1.00, 1.00] 210s
+nominal                  bplsd              206/26000   réglé 7.923e-03 informé 7.923e-03 pénalité 1.00 [1.00, 1.00] 53s
+nominal                  mwpf               200/58000   réglé 3.448e-03 informé 3.448e-03 pénalité 1.00 [1.00, 1.00] 1963s
+nominal                  stimbposd          202/68000   réglé 2.971e-03 informé 2.971e-03 pénalité 1.00 [1.00, 1.00] 689s
+biais Z eta=10           pymatching         200/360000  réglé 5.556e-04 informé 4.750e-04 pénalité 1.17 [1.09, 1.26] 2s
+biais Z eta=10           fusion-blossom     201/410000  réglé 4.902e-04 informé 4.732e-04 pénalité 1.04 [0.98, 1.09] 56s
+biais Z eta=10           beliefmatching     200/372000  réglé 5.376e-04 informé 4.435e-04 pénalité 1.21 [1.11, 1.32] 1047s
+biais Z eta=10           bposd              201/370000  réglé 5.432e-04 informé 4.649e-04 pénalité 1.17 [1.08, 1.27] 727s
+biais Z eta=10           bplsd              205/192000  réglé 1.068e-03 informé 6.771e-04 pénalité 1.58 [1.36, 1.85] 198s
+biais Z eta=10           mwpf               200/352000  réglé 5.682e-04 informé 4.517e-04 pénalité 1.26 [1.16, 1.37] 2702s
+biais Z eta=10           stimbposd          200/404000  réglé 4.950e-04 informé 4.554e-04 pénalité 1.09 [1.02, 1.16] 1923s
+biais Z eta=100          pymatching         200/522000  réglé 3.831e-04 informé 3.218e-04 pénalité 1.19 [1.11, 1.28] 3s
+biais Z eta=100          fusion-blossom     122/340000  réglé 3.588e-04 informé 5.912e-04 pénalité 0.61 [0.53, 0.69] 45s
+biais Z eta=100          beliefmatching     202/480000  réglé 4.208e-04 informé 3.250e-04 pénalité 1.29 [1.20, 1.41] 1043s
+biais Z eta=100          bposd              200/498000  réglé 4.016e-04 informé 3.253e-04 pénalité 1.23 [1.15, 1.33] 741s
+biais Z eta=100          bplsd              201/332000  réglé 6.054e-04 informé 3.584e-04 pénalité 1.69 [1.50, 1.93] 300s
+biais Z eta=100          mwpf               200/470000  réglé 4.255e-04 informé 3.191e-04 pénalité 1.33 [1.23, 1.46] 2332s
+biais Z eta=100          stimbposd          200/542000  réglé 3.690e-04 informé 3.192e-04 pénalité 1.16 [1.08, 1.24] 2364s
+biais Z eta=1000         pymatching         201/552000  réglé 3.641e-04 informé 2.953e-04 pénalité 1.23 [1.16, 1.32] 2s
+biais Z eta=1000         fusion-blossom     130/392000  réglé 3.316e-04 informé 5.128e-04 pénalité 0.65 [0.57, 0.72] 50s
+biais Z eta=1000         beliefmatching     200/522000  réglé 3.831e-04 informé 2.893e-04 pénalité 1.32 [1.23, 1.44] 1153s
+biais Z eta=1000         bposd              200/538000  réglé 3.717e-04 informé 3.048e-04 pénalité 1.22 [1.14, 1.32] 804s
+biais Z eta=1000         bplsd              202/378000  réglé 5.344e-04 informé 3.148e-04 pénalité 1.70 [1.51, 1.93] 359s
+biais Z eta=1000         mwpf               200/512000  réglé 3.906e-04 informé 2.891e-04 pénalité 1.35 [1.25, 1.47] 2976s
+biais Z eta=1000         stimbposd          200/558000  réglé 3.584e-04 informé 2.957e-04 pénalité 1.21 [1.14, 1.30] 2893s
