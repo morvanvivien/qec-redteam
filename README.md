@@ -2,7 +2,7 @@
 
 An independent red team for public quantum error correction decoders. It looks for realistic noise under which a decoder breaks, reports it to the maintainer with a script anyone can replay, and keeps a public record of what it found, what it got wrong and what held up.
 
-This is not a certification. No standard exists yet, and this project does not claim to be one.
+No robustness standard for decoders exists yet, and this project does not claim to be one.
 
 ## Findings
 
