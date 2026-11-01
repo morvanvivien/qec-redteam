@@ -13,3 +13,7 @@ scipy              1.17.1
 sinter             1.16.0
 stim               1.16.0
 clamp_priors present: True /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/relay_bp/stim/sinter/check_matrices.py
+
+Second run: https://github.com/morvanvivien/relay/actions/runs/41355173642 (ubuntu-latest, GitHub Actions)
+Branch: morvanvivien/relay verify-pr-48-burst = c3831ec + verify-pr-48-burst.yml (this folder): burst row and gross code seed 5 of #43
+Same versions as above, read from the run: rustc 1.99.1, Python 3.12.15, qec-redteam 0acfcbc4, clamp_priors present: True

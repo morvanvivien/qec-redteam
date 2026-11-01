@@ -84,8 +84,10 @@
         "research/relay-bp-priors/results-measure_effect-d3.txt",
         "research/relay-bp-priors/results-repro_crash-pr48.txt",
         "research/relay-bp-priors/results-measure_effect-d5-pr48.txt",
+        "research/relay-bp-priors/results-measure_effect-d5-rafale-pr48.txt",
         "research/relay-bp-priors/environnement-pr48-linux.txt",
-        "research/relay-bp-priors/verify-pr-48.yml"
+        "research/relay-bp-priors/verify-pr-48.yml",
+        "research/relay-bp-priors/verify-pr-48-burst.yml"
       ],
       "rejeu": ".venv/bin/python research/relay-bp-priors/repro_crash.py",
       "signalement": {
@@ -145,6 +147,7 @@
         "third_party/relay_bp/README.md",
         "research/relay-bp-priors/results-gross_half_prior-ancilla-s6-pr48.txt",
         "research/relay-bp-priors/results-gross_half_prior-donnee-s7-pr48.txt",
+        "research/relay-bp-priors/results-gross_half_prior-pilot-pr48.txt",
         "research/relay-bp-priors/environnement-pr48-linux.txt"
       ],
       "rejeu": ".venv/bin/python research/relay-bp-priors/gross_half_prior.py --p 0.003 --shots 60 --seed 6 --scenario \"fuite ancilla\"",
