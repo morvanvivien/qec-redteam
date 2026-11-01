@@ -1,0 +1,2 @@
+largest edge prior after from_dem: 0.500 (a probability combined from independent mechanisms never exceeds 0.5)
+decoded without error

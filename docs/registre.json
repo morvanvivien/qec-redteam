@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "mis_a_jour": "2026-10-31",
+  "mis_a_jour": "2026-11-01",
   "categories": {
     "defaut_confirme": "Défaut confirmé : comportement faux d'un logiciel public, rejoué depuis zéro, graine fixée, intervalles de confiance.",
     "defaut_connu_cause_trouvee": "Défaut déjà signalé par un tiers ; nous apportons la cause, la portée ou un correctif vérifié.",
@@ -81,13 +81,17 @@
         "research/relay-bp-priors/repro_crash.py",
         "research/relay-bp-priors/results-repro_crash.txt",
         "research/relay-bp-priors/results-measure_effect-d5.txt",
-        "research/relay-bp-priors/results-measure_effect-d3.txt"
+        "research/relay-bp-priors/results-measure_effect-d3.txt",
+        "research/relay-bp-priors/results-repro_crash-pr48.txt",
+        "research/relay-bp-priors/results-measure_effect-d5-pr48.txt",
+        "research/relay-bp-priors/environnement-pr48-linux.txt",
+        "research/relay-bp-priors/verify-pr-48.yml"
       ],
       "rejeu": ".venv/bin/python research/relay-bp-priors/repro_crash.py",
       "signalement": {
         "date": "2026-09-30",
         "lien": "https://github.com/trmue/relay/issues/43",
-        "statut": "l'auteur a répondu le 16/10 (« I think you are correct », en voyage, il reviendra dessus) ; réponse et offre de PR postées le 31/10 ; aucun correctif au 31/10"
+        "statut": "l'auteur a ouvert le 01/11 la PR https://github.com/trmue/relay/pull/48 qui corrige (probabilités combinées, a priori plafonnés sous 1/2, biais en tableaux 1-D) ; rejouée par nous sous Linux sur c3831ec : plus d'exception, d = 5 fuite d'ancilla 1,22 %, fuite de donnée 1,19 %, comme notre correctif ; vérification postée sous la PR le 01/11 ; non fusionnée au 01/11"
       }
     },
     {
@@ -113,13 +117,16 @@
         "research/relay-bp-priors/results-repro_half_prior-core-fix.txt",
         "research/relay-bp-priors/results-repro_half_prior-pypi-windows-build.txt",
         "research/relay-bp-priors/results-measure_effect-d5-core-fix.txt",
-        "research/relay-bp-priors/environnement-core-fix-windows.txt"
+        "research/relay-bp-priors/environnement-core-fix-windows.txt",
+        "research/relay-bp-priors/results-repro_half_prior-pr48.txt",
+        "research/relay-bp-priors/results-measure_effect-d5-pr48.txt",
+        "research/relay-bp-priors/environnement-pr48-linux.txt"
       ],
       "rejeu": ".venv/bin/python research/relay-bp-priors/repro_half_prior.py",
       "signalement": {
         "date": "2026-09-30",
         "lien": "https://github.com/trmue/relay/issues/43",
-        "statut": "second complément (cause dans le cœur, correctif mesuré) posté le 13/10 ; l'auteur a répondu le 16/10 (« I think you are correct », en voyage, il reviendra dessus) ; réponse et offre de PR postées le 31/10 ; aucun correctif au 31/10"
+        "statut": "l'auteur a ouvert le 01/11 la PR https://github.com/trmue/relay/pull/48 qui corrige (plafond sous 1/2 dans from_dem, plancher optionnel min_log_prior_ratio dans le cœur, décision dure <= 0 gardée) ; rejouée par nous sous Linux sur c3831ec : cœur par défaut inchangé (même empreinte que 0.2.2), plancher 4e−5 : exemple minimal résolu, même empreinte ; vérification postée sous la PR le 01/11 ; non fusionnée au 01/11"
       }
     },
     {
@@ -135,13 +142,16 @@
         "research/relay-bp-priors/results-gross_half_prior-pilot.txt",
         "research/relay-bp-priors/results-gross_half_prior-ancilla-s6.txt",
         "research/relay-bp-priors/results-gross_half_prior-donnee-s7.txt",
-        "third_party/relay_bp/README.md"
+        "third_party/relay_bp/README.md",
+        "research/relay-bp-priors/results-gross_half_prior-ancilla-s6-pr48.txt",
+        "research/relay-bp-priors/results-gross_half_prior-donnee-s7-pr48.txt",
+        "research/relay-bp-priors/environnement-pr48-linux.txt"
       ],
       "rejeu": ".venv/bin/python research/relay-bp-priors/gross_half_prior.py --p 0.003 --shots 60 --seed 6 --scenario \"fuite ancilla\"",
       "signalement": {
         "date": "2026-10-01",
         "lien": "https://github.com/trmue/relay/issues/43",
-        "statut": "complément posté sous l'issue #43 le 01/10 ; l'auteur a répondu le 16/10 (« I think you are correct », en voyage, il reviendra dessus) ; réponse et offre de PR postées le 31/10 ; aucun correctif au 31/10"
+        "statut": "l'auteur a ouvert le 01/11 la PR https://github.com/trmue/relay/pull/48 qui corrige (plafond sous 1/2 sur les deux chemins de from_dem) ; rejouée par nous sous Linux sur c3831ec : gross code informé 0/60 erreur et 0 échec de convergence sur les deux fuites (graines 6 et 7), contre 18/60 et 42/60 en 0.2.2 ; vérification postée sous la PR le 01/11 ; non fusionnée au 01/11"
       }
     },
     {

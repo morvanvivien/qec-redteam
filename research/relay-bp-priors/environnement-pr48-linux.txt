@@ -1,0 +1,15 @@
+Run: https://github.com/morvanvivien/relay/actions/runs/41352952071 (ubuntu-latest, GitHub Actions)
+Branch: morvanvivien/relay verify-pr-48 = trmue/relay PR 48 head c3831ec + verify-pr-48.yml (this folder)
+relay-bp built from source with pip install . (maturin, release profile); the package version string is still 0.2.2
+PR head under test: c3831ecbc78c9aee5c90fb233502c35978f7f2f3
+qec-redteam: 0acfcbc4ab3da23d35a9184a58705a37c165402d
+rustc 1.99.1 (58cf8f9c3 2026-10-13)
+Python 3.12.15
+beliefmatching     0.2.0
+numpy              2.2.6
+PyMatching         2.4.0
+relay-bp           0.2.2
+scipy              1.17.1
+sinter             1.16.0
+stim               1.16.0
+clamp_priors present: True /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/relay_bp/stim/sinter/check_matrices.py

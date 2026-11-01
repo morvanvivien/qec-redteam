@@ -1,6 +1,6 @@
 # relay-bp: the sinter integration sums edge priors and raises on a saturated qubit
 
-Against `relay-bp` 0.2.2 from PyPI (latest release) and `src/relay_bp/stim/sinter/check_matrices.py` on `main` at `d185194` (21 July 2026). Not reported upstream: no open or closed issue of `trmue/relay` mentions it (read on 29 September 2026). **Nothing has been posted.**
+Against `relay-bp` 0.2.2 from PyPI (latest release) and `src/relay_bp/stim/sinter/check_matrices.py` on `main` at `d185194` (21 July 2026). Reported upstream in [trmue/relay#43](https://github.com/trmue/relay/issues/43) on 30 September 2026; the author opened the fix [trmue/relay#48](https://github.com/trmue/relay/pull/48) on 1 November 2026 (see the last section).
 
 ## Cause
 
@@ -43,8 +43,26 @@ See `results-*.txt` for the numbers.
 | `corrected.py` | the proposed fix (combined priors, 1-D ndarray biases) and a crash-fix-only variant, patched in-process for measurement |
 | `measure_effect.py` | same shots decoded by published, crash-fix-only and corrected relay-bp, all compiled from the true DEM, PyMatching as yardstick; paired ratio and McNemar test |
 | `results-*.txt` | outputs on Linux, CPython 3.11.15, stim 1.16.0, relay-bp 0.2.2 |
+| `results-*-pr48.txt`, `environnement-pr48-linux.txt`, `verify-pr-48.yml` | the same scripts on the head of PR 48 (c3831ec), built from source on Linux by GitHub Actions |
 
 ```
 python research/relay-bp-priors/repro_crash.py
 python research/relay-bp-priors/measure_effect.py --distance 5 --shots 10000 --seeds 101 102 103
+```
+
+## Check of the upstream fix (PR 48)
+
+[PR 48](https://github.com/trmue/relay/pull/48) combines the priors as `(1 - prod(1 - 2 p_i)) / 2`, clamps priors in `[1/2 - 1e-5, 1/2]` to `1/2 - 1e-5` on both paths of `CheckMatrices.from_dem`, returns 1-D `uint8` biases, and adds an opt-in floor `min_log_prior_ratio` on the magnitude of the log prior ratios in the min-sum core. We replayed the scripts of this folder on its head `c3831ec`, built from source on Linux ([run](https://github.com/morvanvivien/relay/actions/runs/41352952071), workflow `verify-pr-48.yml`), nothing patched on our side:
+
+| case | relay-bp 0.2.2 | PR 48 | PyMatching, same DEM |
+|---|---|---|---|
+| d = 5, random ancilla randomized for one round, seeds 101 to 103, 30,000 shots | `TypeError` at every decode | 367 / 30,000 = 1.22 % [1.11, 1.35] | 0.85 % |
+| d = 5, central data qubit randomized for one round, seeds 101 to 103, 30,000 shots | `TypeError` | 356 / 30,000 = 1.19 % [1.07, 1.32] | 0.98 % |
+| gross code, ancilla leak, seed 6, 60 shots | 18 / 60 wrong, 60 / 60 not converged | 0 / 60 wrong, 0 not converged | |
+| gross code, data qubit leak, seed 7, 60 shots | 42 / 60 wrong, 60 / 60 not converged | 0 / 60 wrong, 0 not converged | |
+
+At d = 5 the counts are identical, seed by seed, to our clamped variant; the same priors combined but not clamped still give 12.84 % and 5.60 %. In the core, without `min_log_prior_ratio`, the minimal example still decodes to `[1, 1, 1]` without success and the digest of 300 random problems is unchanged from 0.2.2; with `min_log_prior_ratio=4e-5` it decodes to `[0, 0, 0]` with success, and the digest is still unchanged.
+
+```
+python research/relay-bp-priors/repro_half_prior.py --min-log-prior-ratio 4e-5
 ```

@@ -1,0 +1,4 @@
+gross code p=0.003 « fuite donnée centrale » (qubit 0 rendu aléatoire au round 6), graine 7, 60 tirs, colonnes à 1/2 : 0
+  informed  erreurs 0/60 = 0.000 [0.000, 0.060], échecs de convergence 0, itérations médiane 407 max 3646, secondes par tir médiane 0.72 max 6.39
+  clamped   erreurs 0/60 = 0.000 [0.000, 0.060], échecs de convergence 0, itérations médiane 407 max 3646, secondes par tir médiane 0.71 max 6.31
+  tuned     erreurs 0/60 = 0.000 [0.000, 0.060], échecs de convergence 0, itérations médiane 288 max 3183, secondes par tir médiane 0.50 max 5.52
