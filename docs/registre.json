@@ -93,7 +93,7 @@
       "signalement": {
         "date": "2026-09-30",
         "lien": "https://github.com/trmue/relay/issues/43",
-        "statut": "l'auteur a ouvert le 01/11 la PR https://github.com/trmue/relay/pull/48 qui corrige (probabilités combinées, a priori plafonnés sous 1/2, biais en tableaux 1-D) ; rejouée par nous sous Linux sur c3831ec : plus d'exception, d = 5 fuite d'ancilla 1,22 %, fuite de donnée 1,19 %, comme notre correctif ; vérification postée sous la PR le 01/11 ; non fusionnée au 01/11"
+        "statut": "l'auteur a ouvert le 01/11 la PR https://github.com/trmue/relay/pull/48 qui corrige (probabilités combinées, a priori plafonnés sous 1/2, biais en tableaux 1-D) ; rejouée par nous sous Linux sur c3831ec : plus d'exception, d = 5 fuite d'ancilla 1,22 %, fuite de donnée 1,19 %, comme notre correctif ; vérification postée sous la PR le 01/11 ; fusionnée le 02/11 (04ebefd, même arbre que c3831ec), pas encore de version PyPI (0.2.2 au 02/11)"
       }
     },
     {
@@ -128,7 +128,7 @@
       "signalement": {
         "date": "2026-09-30",
         "lien": "https://github.com/trmue/relay/issues/43",
-        "statut": "l'auteur a ouvert le 01/11 la PR https://github.com/trmue/relay/pull/48 qui corrige (plafond sous 1/2 dans from_dem, plancher optionnel min_log_prior_ratio dans le cœur, décision dure <= 0 gardée) ; rejouée par nous sous Linux sur c3831ec : cœur par défaut inchangé (même empreinte que 0.2.2), plancher 4e−5 : exemple minimal résolu, même empreinte ; vérification postée sous la PR le 01/11 ; non fusionnée au 01/11"
+        "statut": "l'auteur a ouvert le 01/11 la PR https://github.com/trmue/relay/pull/48 qui corrige (plafond sous 1/2 dans from_dem, plancher optionnel min_log_prior_ratio dans le cœur, décision dure <= 0 gardée) ; rejouée par nous sous Linux sur c3831ec : cœur par défaut inchangé (même empreinte que 0.2.2), plancher 4e−5 : exemple minimal résolu, même empreinte ; vérification postée sous la PR le 01/11 ; fusionnée le 02/11 (04ebefd, même arbre que c3831ec), pas encore de version PyPI (0.2.2 au 02/11)"
       }
     },
     {
@@ -154,7 +154,7 @@
       "signalement": {
         "date": "2026-10-01",
         "lien": "https://github.com/trmue/relay/issues/43",
-        "statut": "l'auteur a ouvert le 01/11 la PR https://github.com/trmue/relay/pull/48 qui corrige (plafond sous 1/2 sur les deux chemins de from_dem) ; rejouée par nous sous Linux sur c3831ec : gross code informé 0/60 erreur et 0 échec de convergence sur les deux fuites (graines 6 et 7), contre 18/60 et 42/60 en 0.2.2 ; vérification postée sous la PR le 01/11 ; non fusionnée au 01/11"
+        "statut": "l'auteur a ouvert le 01/11 la PR https://github.com/trmue/relay/pull/48 qui corrige (plafond sous 1/2 sur les deux chemins de from_dem) ; rejouée par nous sous Linux sur c3831ec : gross code informé 0/60 erreur et 0 échec de convergence sur les deux fuites (graines 6 et 7), contre 18/60 et 42/60 en 0.2.2 ; vérification postée sous la PR le 01/11 ; fusionnée le 02/11 (04ebefd, même arbre que c3831ec), pas encore de version PyPI (0.2.2 au 02/11)"
       }
     },
     {
