@@ -1,0 +1,38 @@
+name: linux measurement
+# Runs one measurement that needs a decoder without a Windows wheel (tesseract-decoder, relay-bp)
+# and uploads its output with the environment; the files are then versioned in research/ or docs/.
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: command to run from the repository root
+        required: true
+      name:
+        description: artifact name
+        required: true
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r requirements-decoders.txt
+      - name: Record the environment
+        run: |
+          mkdir -p out
+          { uname -a; nproc; python --version; git rev-parse HEAD; python -m pip freeze; } > out/environment.txt
+      - name: Measure
+        env:
+          COMMAND: ${{ inputs.command }}
+        run: |
+          echo "\$ $COMMAND" > out/output.txt
+          bash -c "$COMMAND" 2>&1 | tee -a out/output.txt
+          exit ${PIPESTATUS[0]}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ inputs.name }}
+          path: out/
