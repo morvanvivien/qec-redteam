@@ -1,12 +1,12 @@
 # Brique 2 — résultats au fil de l'eau
 
 1. **Ce qui casse :** relay-bp (IBM) casse deux fois devant un qubit devenu aléatoire (fuite, rafale). Son module stim/sinter lève une exception à chaque décodage (constat 003, rejoué sur 6 graines). Et son cœur de calcul, dès qu'une probabilité vaut exactement 1/2, rend des corrections qui ne respectent même pas le syndrome, après des milliers d'itérations. Les deux défauts sont présents sur PyPI 0.2.2 et sur la branche principale. Sur le code principal d'IBM (gross code), le second fait échouer 150 décodages informés sur 150, avec 49 % d'erreurs, contre 0 % en plafonnant les probabilités.
-2. **Ce qui renverse le classement, confirmé :** sous diaphonie ZZ entre portes voisines (3p), tesseract passe de 0,62 fois les erreurs de PyMatching à 1,29 à 1,53 fois, et mwpf de 0,76 à 2,4 à 2,9 fois, sur 3 graines indépendantes et en duel apparié (même tirs). Même chose en miroir, XX en mémoire X. Répliqué le 13/10 sur une autre machine pour mwpf (0,65–0,76 → 2,5–3,0, 3 graines) ; absent à d = 3 (3 graines), plus fort à d = 7.
+2. **Ce qui renverse le classement, confirmé :** sous diaphonie ZZ entre portes voisines (3p), tesseract passe de 0,62 fois les erreurs de PyMatching à 1,29 à 1,53 fois, et mwpf de 0,76 à 2,4 à 2,9 fois, sur 3 graines indépendantes et en duel apparié (même tirs). Même chose en miroir, XX en mémoire X. Répliqué le 13/10 sur une autre machine pour mwpf (0,65–0,76 → 2,5–3,0, 3 graines) ; rejoué le 14/11 sous Linux (GitHub Actions), tesseract compris : graines 31 et 32 retrouvées au tir près, graine 33 en mémoire Z ajoutée (0,52 → 1,42) ; absent à d = 3 (3 graines, tesseract compris), plus fort à d = 7.
 3. **Ce qui tient :** aucun décodeur ne s'effondre sous un mauvais réglage homogène, une dérive ou un coupleur chaud (pénalité ≤ 1,6). PyMatching tient aussi en latence (p99 < 61 µs partout) ; tesseract et mwpf, non : leur p99 monte à 0,4–0,65 s sous bruit perturbé, avec des tirs à près de 2 s pour tesseract.
 4. **Ce qui coûte à tous :** un qubit chaud, une fuite ou une rafale non annoncés coûtent ×2 à ×3,7 à tous les décodeurs. C'est le prix d'une calibration périmée, pas un défaut d'un décodeur en particulier.
 5. **Piste la plus prometteuse :** relay-bp, avec un correctif d'un caractère dans son cœur Rust, déjà compilé et vérifié (sorties identiques sur 300 problèmes sans probabilité 1/2), proposé depuis au mainteneur (trmue/relay#43). Ensuite, le renversement de classement sous diaphonie, cœur d'un « profil de robustesse ».
 
-État : **partiel**, mis à jour le 12/10/2026. Rien n'est publié hors de ce dépôt.
+État : **partiel**, mis à jour le 15/11/2026. Rien n'est publié hors de ce dépôt.
 
 ## Protocole
 
@@ -80,11 +80,11 @@ Effet de la distance (duels, mémoire Z) :
 
 | d | p | Graine | Tirs | tesseract / PyMatching, nominal | tesseract / PyMatching, ZZ 3p | mwpf / PyMatching, nominal | mwpf / PyMatching, ZZ 3p |
 |---|---|---|---|---|---|---|---|
-| 3 | 0,002 | 41 (42, 43 sans tesseract) | 60 000 | 0,85 [0,80; 0,89] | 1,01 [0,95; 1,07] | 0,81 à 0,85 | 1,00 à 1,05 |
-| 5 | 0,002 | 31, 32 (33 sans tesseract) | 40 000 | 0,62 à 0,70 | **1,29 à 1,53** | 0,65 à 0,76 | **2,42 à 3,02** |
+| 3 | 0,002 | 41, 42, 43 | 60 000 | 0,83 à 0,85 | 0,98 à 1,02 | 0,81 à 0,86 | 0,99 à 1,05 |
+| 5 | 0,002 | 31, 32, 33 | 40 000 | 0,52 à 0,70 | **1,29 à 1,53** | 0,64 à 0,76 | **2,42 à 3,02** |
 | 7 | 0,003 | 42 | 10 000 (nominal), 3 000 (diaphonie) | 0,35 [0,23; 0,48] | **2,00** [1,40; 3,04] | non mesuré | non mesuré |
 
-L'avantage de tesseract sous bruit nominal grandit avec la distance (0,85 à d = 3, 0,35 à d = 7), et la diaphonie ZZ le renverse d'autant plus fort : effacé à d = 3, ×1,3 à 1,5 à d = 5, ×2,0 à d = 7.
+Lignes d = 3 et d = 5 : séries Linux du 14/11 pour tesseract (voir plus bas), mwpf sur les séries Linux et Windows. L'avantage de tesseract sous bruit nominal grandit avec la distance (0,85 à d = 3, 0,35 à d = 7), et la diaphonie ZZ le renverse d'autant plus fort : effacé à d = 3, ×1,3 à 1,5 à d = 5, ×2,0 à d = 7.
 
 Série d = 3 fermée le 12/10 sur trois graines (41, 42, 43), 60 000 tirs appariés chacune, p = 0,002, mémoire Z, sept décodeurs sur le poste Windows (tesseract et relay-bp n'y sont pas installables : voir les fichiers `-linux` pour tesseract). Rapport au taux de PyMatching [IC 95 %] ; fichiers `research/duel-d3/results-d3-s4*-windows.txt`.
 
@@ -99,7 +99,7 @@ Série d = 3 fermée le 12/10 sur trois graines (41, 42, 43), 60 000 tirs appari
 
 Lecture à d = 3 : mwpf perd son avantage de 15 à 19 % (McNemar p ≤ 3e−8 au nominal) et revient à égalité avec PyMatching sous diaphonie (p ≥ 0,1 sur les trois graines) ; stimbposd de même ; BP+OSD passe de l'égalité à +20 à +24 % (p ≤ 7e−11) ; BP+LSD, déjà 31 à 44 % derrière PyMatching au nominal (ordre 0, constat 002), tombe à +68 à +72 %. beliefmatching et fusion-blossom ne bougent pas. Sous diaphonie ZZ, le taux de PyMatching lui-même ne change pas (648 → 661, 669 → 653, 598 → 645 erreurs) : il ne voit pas le secteur X. Cohérent avec la mesure Linux de septembre sur la graine 41 (mwpf 0,84 → 1,02) : le renversement est absent à d = 3, net à d = 5, plus fort à d = 7.
 
-Rejeu des duels d = 5 (13/10), les journaux de septembre étant perdus (QEC-2026-021) : mêmes réglages (`redteam.duel`, d = 5, p = 0,002, mémoire Z, 40 000 tirs appariés par graine), graines 31, 32 et 33, poste Windows, PyMatching, mwpf et BP+OSD (tesseract : Linux requis). Fichiers `research/duel-d5/results-d5-s3*-windows.txt`.
+Rejeu des duels d = 5 (13/10), les journaux de septembre étant perdus (QEC-2026-021) : mêmes réglages (`redteam.duel`, d = 5, p = 0,002, mémoire Z, 40 000 tirs appariés par graine), graines 31, 32 et 33, poste Windows, PyMatching, mwpf et BP+OSD (tesseract : Linux requis, fait le 14/11, voir plus bas). Fichiers `research/duel-d5/results-d5-s3*-windows.txt`.
 
 | Graine | PyMatching, erreurs (nominal → ZZ 3p) | mwpf / PyMatching, nominal | mwpf / PyMatching, ZZ 3p | BP+OSD / PyMatching, nominal | BP+OSD / PyMatching, ZZ 3p |
 |---|---|---|---|---|---|
@@ -109,6 +109,19 @@ Rejeu des duels d = 5 (13/10), les journaux de septembre étant perdus (QEC-2026
 | septembre, Linux (31, 32) | | 0,76 | 2,42 à 2,90 | 1,03 à 1,07 | 2,21 à 2,26 |
 
 Le renversement de classement de mwpf à d = 5 est répliqué sur une autre machine et trois graines : de 0,65–0,76 fois les erreurs de PyMatching au nominal à 2,5–3,0 fois sous diaphonie ZZ (McNemar p ≤ 3e−43 aux trois graines). Même chose pour BP+OSD (2,3 à 2,7). Série d = 3, 5, 7 pour mwpf : 0,81–0,85 → 1,00–1,05 (d = 3), 0,65–0,76 → 2,5–3,0 (d = 5). Une différence non expliquée : au nominal, BP+OSD fait 0,81 à 0,96 fois PyMatching sous Windows contre 1,03 à 1,07 sous Linux en septembre ; les intervalles se touchent à peine, les comptes Linux sont perdus, piste ouverte QEC-2026-023.
+
+Rejeu sous Linux le 14/11 (GitHub Actions, workflow `linux measurement` du dépôt public, Ubuntu 24.04, Python 3.11.18, tesseract-decoder 0.1.1.dev20260822020007, mêmes versions que `requirements-decoders.txt`), PyMatching, tesseract et mwpf, mêmes commandes qu'en septembre. Fichiers `research/duel-d3/results-d3-s4*-linux.txt`, `research/duel-d5/results-d5-s3*-linux.txt`, environnements `environnement-linux.txt`.
+
+| d | Graine | PyMatching, erreurs (nominal → ZZ 3p) | tesseract / PyMatching, nominal | tesseract / PyMatching, ZZ 3p | mwpf / PyMatching, nominal | mwpf / PyMatching, ZZ 3p |
+|---|---|---|---|---|---|---|
+| 3 | 41 | 634 → 636 | 0,85 [0,80 ; 0,89] | 1,01 [0,95 ; 1,07] | 0,84 [0,80 ; 0,89] | 1,02 [0,96 ; 1,09] |
+| 3 | 42 | 615 → 641 | 0,85 [0,81 ; 0,90] | 1,02 [0,97 ; 1,08] | 0,86 [0,81 ; 0,91] | 1,03 [0,97 ; 1,09] |
+| 3 | 43 | 671 → 637 | 0,83 [0,79 ; 0,88] | 0,98 [0,92 ; 1,04] | 0,83 [0,79 ; 0,87] | 0,99 [0,94 ; 1,06] |
+| 5 | 31 | 163 → 191 | 0,70 [0,60 ; 0,81] | **1,29** [1,13 ; 1,48] | 0,76 [0,66 ; 0,88] | **2,42** [2,11 ; 2,81] |
+| 5 | 32 | 152 → 172 | 0,62 [0,52 ; 0,72] | **1,53** [1,34 ; 1,76] | 0,76 [0,64 ; 0,88] | **2,90** [2,52 ; 3,36] |
+| 5 | 33 | 169 → 177 | 0,52 [0,43 ; 0,62] | **1,42** [1,24 ; 1,63] | 0,64 [0,54 ; 0,76] | **2,69** [2,34 ; 3,13] |
+
+Lecture : les graines 41 (d = 3), 31 et 32 (d = 5) redonnent **au tir près** les chiffres de septembre (table du haut), sous Linux avec les mêmes versions : les duels de septembre sont donc de nouveau rejouables, avec des journaux versionnés cette fois (QEC-2026-021). La graine 33 en mémoire Z est une mesure nouvelle (en septembre, la graine 33 servait au miroir XX en mémoire X) : tesseract 0,52 → 1,42, McNemar p = 4e−7 sous diaphonie. À d = 3, tesseract perd son avantage de 15 à 17 % (p ≤ 9e−9 au nominal) et revient à égalité avec PyMatching (p ≥ 0,4) : effacé, pas renversé, comme mwpf. Le renversement de tesseract à d = 5 repose désormais sur trois graines versionnées : 1,29 à 1,53 fois les erreurs de PyMatching (p ≤ 2e−4).
 
 Rejeu et plateformes : une graine stim n'est reproductible qu'à machine et version identiques (documentation de `compile_detector_sampler`) ; la même graine donne d'autres tirs sur une autre machine. Un duel reste apparié parce que tous ses décodeurs voient les mêmes tirs sur la machine qui l'exécute ; les séries `-windows` et `-linux` sont donc des réplications indépendantes l'une de l'autre, pas des rejeux au tir près.
 
@@ -167,8 +180,9 @@ Lecture, point par point :
 - **fusion-blossom informé moins bon que réglé (0,61 et 0,65) : c'est bien le constat 004, vérifié et non supposé.** Mêmes tirs, d = 5, mémoire Z (`research/sinter-fusion-blossom/parallel_edges.py --basis z`, graines 11 à 13, 600 000 tirs) : l'adaptateur de sinter fait 5,62e−4 à η = 1000, fusion-blossom avec arêtes parallèles fusionnées 3,05e−4, PyMatching 3,05e−4 (183 erreurs pour les deux, au tir près) : ×1,84, McNemar p = 3e−45 ; à η = 100, ×1,78, p = 5e−41. À η = 10, rien (pénalité 1,04). Le défaut coûte plus en mémoire Z qu'en mémoire X (×1,26 à d = 5, η = 1000).
 - **BP+LSD est le plus sensible au réglage** (1,58 à 1,70), mais informé il rejoint PyMatching (3,15e−4 contre 2,95e−4) ; son retard au nominal (×1,8 sur PyMatching) est le même qu'en mémoire X : l'ordre 0 de LSD (QEC-2026-020), pas le biais.
 - **relay-bp** se range avec les autres (1,23 à 1,39), sans exception : un bruit biaisé ne sature aucun qubit, le constat 003 ne s'y déclenche pas.
+- **tesseract** (mesuré le 14/11 sous Linux, GitHub Actions, même banc et même graine, arrêt à 100 erreurs pour tenir dans le délai ; `d5_r5_p0.002_z_biais_s20260929_tesseract_linux.csv`, journal `biais_z_memoire_z_tesseract_linux.txt`) se range lui aussi avec les autres, sans exception : taux nominal 2,86e−3 (103 erreurs sur 36 000 tirs), pénalité 1,10 [1,01 ; 1,20] à η = 10, 1,25 [1,14 ; 1,40] à η = 100, 1,16 [1,08 ; 1,27] à η = 1000 (taux réglé / informé 2,86 / 2,46e−4, 350 000 tirs). Autre machine que les huit autres colonnes : les taux se comparent d'une colonne à l'autre, pas au tir près.
 
-Réponse à la question posée (« les écarts de la mémoire X tiennent-ils dans l'autre base ? ») : le constat 004 tient et s'aggrave ; l'écart de BP+LSD au nominal tient, son écart sous biais disparaît quand il est informé ; tesseract reste à mesurer (Linux requis).
+Réponse à la question posée (« les écarts de la mémoire X tiennent-ils dans l'autre base ? ») : le constat 004 tient et s'aggrave ; l'écart de BP+LSD au nominal tient, son écart sous biais disparaît quand il est informé ; tesseract paie 10 à 25 % sans connaître le biais, comme les autres, et ne casse pas.
 
 ## Plantages et délais
 
@@ -292,8 +306,9 @@ Données brutes : [docs/brique-2/latence/](brique-2/latence/).
 
 ## Ce qui reste à faire
 
-État au 13/10 :
+État au 15/11 :
 
-- **Diaphonie, effet de la distance** : fait pour mwpf, BP+OSD, stimbposd, BP+LSD, beliefmatching et fusion-blossom à d = 3 (3 graines) et pour mwpf et BP+OSD à d = 5 (rejeu Windows, 3 graines). **Bloqué, Linux requis** : tesseract à d = 3 sur 3 graines (41 à 43) et le rejeu de ses duels d = 5 (31 à 33), dont les journaux de septembre sont perdus (QEC-2026-021). tesseract-decoder n'a ni roue Windows ni sdist sur PyPI ; un essai borné de compilation depuis les sources (commit 6a260b0, celui de la version utilisée, CMake + zig c++ + pybind11 3.0.1 pour Python 3.14) a échoué le 13/10 : `src/visualization.cc` ne compile pas avec la libc++ de zig (ligne 15 : « no matching function for call to 'min' »), et le disque C: du poste s'est rempli pendant la compilation de stim (voir le journal du PLAN). Commandes à lancer sous Linux, Python 3.11 à 3.13 : `python -m redteam.duel --distance 3 --p 0.002 --scenario nominal "diaphonie ZZ 3p" --decoders pymatching tesseract mwpf --shots 60000 --seed 41` (puis 42, 43), et de même `--distance 5 --shots 40000 --seed 31` (puis 32, 33).
+- **Diaphonie, effet de la distance** : fait pour les sept décodeurs du poste Windows à d = 3 (3 graines), pour mwpf et BP+OSD à d = 5 (rejeu Windows, 3 graines), et pour tesseract et mwpf à d = 3 et d = 5 sous Linux le 14/11 (3 graines chacun, journaux versionnés). tesseract-decoder n'a ni roue Windows ni sdist sur PyPI (compilation depuis les sources échouée le 13/10, voir le journal du PLAN) : ses mesures passent par le workflow `linux measurement` du dépôt public (`gh workflow run measure.yml -f command="..." -f name=...`).
+- **QEC-2026-023** (BP+OSD au nominal, 0,81 à 0,96 sous Windows contre 1,03 à 1,07 sous Linux en septembre) : désormais vérifiable, puisque le même workflow redonne les tirs de septembre au tir près. À lancer : `python -m redteam.duel --distance 5 --p 0.002 --scenario nominal "diaphonie ZZ 3p" --decoders pymatching bposd --shots 40000 --seed 31` (puis 32, 33).
 - **relay-bp** : fait. Seconde cause localisée (ensemble bloquant, 12/10), correctif du cœur compilé et mesuré sous Windows (e49f8af) : 12,84 % → 1,24 % et 5,60 % → 1,26 %. Reste, facultatif : le même rejeu sous Linux, et un test apparié `corrected` contre `clamped` sur la fuite de donnée (379 contre 353 erreurs sur 30 000, non significatif en l'état).
-- **Biais Z** : fait en mémoire X (9 décodeurs) et en mémoire Z (8 décodeurs). **Bloqué, Linux requis** : tesseract en mémoire Z. Ouvert : le mécanisme de la pénalité en mémoire Z (QEC-2026-022).
+- **Biais Z** : fait en mémoire X et en mémoire Z pour les 9 décodeurs (tesseract en mémoire Z sous Linux le 14/11). Ouvert : le mécanisme de la pénalité en mémoire Z (QEC-2026-022).

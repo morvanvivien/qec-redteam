@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "mis_a_jour": "2026-11-01",
+  "mis_a_jour": "2026-11-15",
   "categories": {
     "defaut_confirme": "Défaut confirmé : comportement faux d'un logiciel public, rejoué depuis zéro, graine fixée, intervalles de confiance.",
     "defaut_connu_cause_trouvee": "Défaut déjà signalé par un tiers ; nous apportons la cause, la portée ou un correctif vérifié.",
@@ -205,7 +205,7 @@
       "version": "tesseract 0.1.1.dev20260822020007, mwpf 0.2.12, ldpc 2.4.1, stimbposd 0.2.0",
       "categorie": "profil",
       "titre": "Classement renversé par une diaphonie ZZ non calibrée",
-      "constat": "Réglés sur le nominal, tesseract fait 0,62 à 0,70 fois les erreurs de PyMatching sous bruit nominal et 1,29 à 1,53 fois sous diaphonie ZZ à 3p (d = 5, 3 graines, 40 000 tirs appariés) ; mwpf passe de 0,76 à 2,4–2,9. Même chose en miroir (XX, mémoire X). Effacé à d = 3, renversé à d = 5. Informés de la diaphonie, ils repassent devant : sensibilité à la calibration, pas défaut. À d = 7 (p = 0,003, graine 42) : 0,35 [0,23 ; 0,48] sous bruit nominal (10 000 tirs), 2,00 [1,40 ; 3,04] sous diaphonie ZZ 3p (3 000 tirs, McNemar p = 3e−4) : l'inversion grandit avec la distance. Série d = 3 fermée le 12/10 sur 3 graines (41, 42, 43 ; 60 000 tirs appariés chacune, poste Windows, sans tesseract) : mwpf 0,81 à 0,85 fois PyMatching au nominal, 1,00 à 1,05 sous ZZ 3p (avantage effacé, pas renversé) ; BP+OSD 1,00 à 1,05 puis 1,20 à 1,24 ; stimbposd 0,87 à 0,90 puis 1,02 à 1,06 ; BP+LSD 1,31 à 1,44 puis 1,68 à 1,72 ; beliefmatching 0,92 puis 0,98 à 0,99 ; fusion-blossom inchangé. Les journaux des duels de septembre (d = 3 et 5) n'ayant jamais été versionnés (QEC-2026-021), les duels d = 5 et le d = 3 avec tesseract sont relancés sous Linux. Rejeu d = 5 le 13/10 (Windows, graines 31 à 33, 40 000 tirs chacune, sans tesseract) : mwpf 0,65 à 0,76 fois PyMatching au nominal, 2,53 à 3,02 sous ZZ 3p (McNemar p ≤ 3e−43) ; BP+OSD 0,81 à 0,96 puis 2,33 à 2,71. Le renversement de mwpf est répliqué sur une autre machine ; celui de tesseract repose encore sur les mesures Linux de septembre (Linux requis pour le rejouer).",
+      "constat": "Réglés sur le nominal, tesseract fait 0,52 à 0,70 fois les erreurs de PyMatching sous bruit nominal et 1,29 à 1,53 fois sous diaphonie ZZ à 3p (d = 5, 3 graines, 40 000 tirs appariés) ; mwpf passe de 0,76 à 2,4–2,9. Même chose en miroir (XX, mémoire X). Effacé à d = 3, renversé à d = 5. Informés de la diaphonie, ils repassent devant : sensibilité à la calibration, pas défaut. À d = 7 (p = 0,003, graine 42) : 0,35 [0,23 ; 0,48] sous bruit nominal (10 000 tirs), 2,00 [1,40 ; 3,04] sous diaphonie ZZ 3p (3 000 tirs, McNemar p = 3e−4) : l'inversion grandit avec la distance. Série d = 3 fermée le 12/10 sur 3 graines (41, 42, 43 ; 60 000 tirs appariés chacune, poste Windows, sans tesseract) : mwpf 0,81 à 0,85 fois PyMatching au nominal, 1,00 à 1,05 sous ZZ 3p (avantage effacé, pas renversé) ; BP+OSD 1,00 à 1,05 puis 1,20 à 1,24 ; stimbposd 0,87 à 0,90 puis 1,02 à 1,06 ; BP+LSD 1,31 à 1,44 puis 1,68 à 1,72 ; beliefmatching 0,92 puis 0,98 à 0,99 ; fusion-blossom inchangé. Les journaux des duels de septembre (d = 3 et 5) n'ayant jamais été versionnés (QEC-2026-021), les duels d = 5 et le d = 3 avec tesseract sont relancés sous Linux. Rejeu d = 5 le 13/10 (Windows, graines 31 à 33, 40 000 tirs chacune, sans tesseract) : mwpf 0,65 à 0,76 fois PyMatching au nominal, 2,53 à 3,02 sous ZZ 3p (McNemar p ≤ 3e−43) ; BP+OSD 0,81 à 0,96 puis 2,33 à 2,71. Le renversement de mwpf est répliqué sur une autre machine. Rejeu Linux le 14/11 (GitHub Actions, mêmes versions, PyMatching, tesseract, mwpf) : graines 41 (d = 3), 31 et 32 (d = 5) retrouvées au tir près ; tesseract à d = 3, graines 41 à 43 : 0,83 à 0,85 au nominal, 0,98 à 1,02 sous ZZ 3p (effacé, pas renversé) ; à d = 5, graines 31 à 33 : 0,52 à 0,70 au nominal, 1,29 à 1,53 sous ZZ 3p (McNemar p ≤ 2e−4) ; mwpf 0,64 à 0,76 puis 2,42 à 2,90. Le renversement de tesseract repose sur trois graines versionnées.",
       "preuves": [
         "docs/brique-2-resultats.md",
         "research/duel-d7/results-d7-zz-s42.txt",
@@ -215,7 +215,14 @@
         "research/duel-d3/results-d3-s43-windows.txt",
         "research/duel-d5/results-d5-s31-windows.txt",
         "research/duel-d5/results-d5-s32-windows.txt",
-        "research/duel-d5/results-d5-s33-windows.txt"
+        "research/duel-d5/results-d5-s33-windows.txt",
+        "research/duel-d3/results-d3-s41-linux.txt",
+        "research/duel-d3/results-d3-s42-linux.txt",
+        "research/duel-d3/results-d3-s43-linux.txt",
+        "research/duel-d5/results-d5-s31-linux.txt",
+        "research/duel-d5/results-d5-s32-linux.txt",
+        "research/duel-d5/results-d5-s33-linux.txt",
+        "research/duel-d5/environnement-linux.txt"
       ],
       "rejeu": ".venv/bin/python -m redteam.duel --distance 5 --p 0.002 --scenario nominal \"diaphonie ZZ 3p\" --decoders pymatching tesseract mwpf --shots 40000 --seed 32",
       "signalement": null
@@ -243,7 +250,7 @@
       "version": "voir requirements-decoders.txt",
       "categorie": "tient",
       "titre": "Aucun effondrement sous mauvais réglage homogène, dérive, coupleur chaud ou biais Z (mémoires X et Z)",
-      "constat": "Pénalité de réglage ≤ 1,6 partout (d = 5, p = 0,002, 200 erreurs par cellule). PyMatching tient aussi en latence : p99 < 61 µs dans tous les scénarios. Biais Z, mémoire X, neuf décodeurs (BP+LSD ajouté le 12/10) : pénalités 0,94 à 1,17, sauf fusion-blossom 0,77 (constat 004). Mémoire Z, huit décodeurs sans tesseract (13/10) : le biais divise le taux par 12 ; pénalités 1,04 à 1,39, BP+LSD 1,58 à 1,70, fusion-blossom 0,61 à 0,65 (constat 004) ; aucune exception, relay-bp compris. Mécanisme de la pénalité en mémoire Z : QEC-2026-022.",
+      "constat": "Pénalité de réglage ≤ 1,6 partout (d = 5, p = 0,002, 200 erreurs par cellule). PyMatching tient aussi en latence : p99 < 61 µs dans tous les scénarios. Biais Z, mémoire X, neuf décodeurs (BP+LSD ajouté le 12/10) : pénalités 0,94 à 1,17, sauf fusion-blossom 0,77 (constat 004). Mémoire Z, huit décodeurs (13/10, Windows) puis tesseract (14/11, Linux) : le biais divise le taux par 12 ; pénalités 1,04 à 1,39, BP+LSD 1,58 à 1,70, tesseract 1,10 à 1,25, fusion-blossom 0,61 à 0,65 (constat 004) ; aucune exception, relay-bp et tesseract compris. Mécanisme de la pénalité en mémoire Z : QEC-2026-022.",
       "preuves": [
         "docs/brique-2-resultats.md",
         "docs/brique-2/d5_r5_p0.002_z_s20260929_rapides.csv",
@@ -252,7 +259,9 @@
         "docs/brique-2/d5_r5_p0.002_x_biais_s20260929_biais_lents.csv",
         "docs/brique-2/d5_r5_p0.002_x_biais_s20260929_bplsd_windows.csv",
         "docs/brique-2/d5_r5_p0.002_z_biais_s20260929_windows.csv",
-        "docs/brique-2/d5_r5_p0.002_z_biais_s20260929_relay_windows.csv"
+        "docs/brique-2/d5_r5_p0.002_z_biais_s20260929_relay_windows.csv",
+        "docs/brique-2/d5_r5_p0.002_z_biais_s20260929_tesseract_linux.csv",
+        "docs/brique-2/biais_z_memoire_z_tesseract_linux.txt"
       ],
       "rejeu": ".venv/bin/python -m redteam.mismatch --distance 5 --p 0.002 --decoders pymatching",
       "signalement": null
@@ -420,12 +429,13 @@
       "version": "registre du 01/10 (26c4f87)",
       "categorie": "erreur_de_methode",
       "titre": "Six journaux cités comme preuves n'ont jamais été versionnés : *.log est ignoré par git",
-      "constat": "Le registre du 01/10 citait docs/brique-2/duel_zz_d5_s31.log, duel_zz_d5_s32.log, duel_xx_d5_x_s33.log, duel_zz_d3_s41.log, duel_zz_d7_s42.log et biais_d5_x.log. Ils existaient sur le conteneur de calcul, mais .gitignore ignore *.log et aucun n'a été commité : perdus avec le conteneur, découverts au premier clone. Le vérificateur ne testait que la présence sur le disque ; il refuse désormais toute preuve que git ignorerait (git check-ignore), avec un test. Preuves remplacées par ce qui est versionné et porte les mêmes chiffres (CSV du banc biaisé, fichiers du duel d = 7) et par des rejeux (d = 3 sous Windows, d = 5 sous Linux). Aucun chiffre publié n'est touché, mais les duels d = 5 de septembre ne sont plus rejouables au tir près. Leçon connexe, lue dans la documentation de stim (compile_detector_sampler) : une graine n'est reproductible qu'à machine et version identiques ; sur une autre machine, un rejeu est une réplication indépendante (exemple : mémoire X nominal, PyMatching, 204 erreurs sur 50 000 tirs sous Linux contre 205 sur 46 000 sous Windows, même graine). Rejeux faits (12 et 13/10, Windows) : duels d = 3 graines 41 à 43 et d = 5 graines 31 à 33 pour mwpf et BP+OSD, banc biaisé complété. Non rejoué : tesseract (pas de roue Windows, compilation depuis les sources échouée le 13/10), Linux requis.",
+      "constat": "Le registre du 01/10 citait docs/brique-2/duel_zz_d5_s31.log, duel_zz_d5_s32.log, duel_xx_d5_x_s33.log, duel_zz_d3_s41.log, duel_zz_d7_s42.log et biais_d5_x.log. Ils existaient sur le conteneur de calcul, mais .gitignore ignore *.log et aucun n'a été commité : perdus avec le conteneur, découverts au premier clone. Le vérificateur ne testait que la présence sur le disque ; il refuse désormais toute preuve que git ignorerait (git check-ignore), avec un test. Preuves remplacées par ce qui est versionné et porte les mêmes chiffres (CSV du banc biaisé, fichiers du duel d = 7) et par des rejeux (d = 3 sous Windows, d = 5 sous Linux). Aucun chiffre publié n'est touché. Nous avions écrit que les duels d = 5 de septembre n'étaient plus rejouables au tir près : c'était faux, le rejeu Linux du 14/11 (GitHub Actions, mêmes versions) redonne au tir près les graines 31 et 32 (d = 5) et 41 (d = 3), journaux versionnés. Leçon connexe, lue dans la documentation de stim (compile_detector_sampler) : une graine n'est reproductible qu'à machine et version identiques ; sur une autre machine, un rejeu est une réplication indépendante (exemple : mémoire X nominal, PyMatching, 204 erreurs sur 50 000 tirs sous Linux contre 205 sur 46 000 sous Windows, même graine). Rejeux faits (12 et 13/10, Windows) : duels d = 3 graines 41 à 43 et d = 5 graines 31 à 33 pour mwpf et BP+OSD, banc biaisé complété. tesseract (pas de roue Windows, compilation depuis les sources échouée le 13/10) rejoué sous Linux le 14/11.",
       "preuves": [
         "redteam/registre.py",
         "tests/test_registre.py",
         "docs/brique-2-resultats.md",
-        "research/duel-d5/results-d5-s31-windows.txt"
+        "research/duel-d5/results-d5-s31-windows.txt",
+        "research/duel-d5/results-d5-s31-linux.txt"
       ],
       "rejeu": "python -m redteam.registre --check",
       "signalement": null

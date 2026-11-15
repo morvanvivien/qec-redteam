@@ -1,0 +1,5 @@
+$ python -m redteam.mismatch --out out --basis z --biased --decoders tesseract --target-errors 100 --max-shots 1000000 --timeout 19000 --tag tesseract_linux
+nominal                  tesseract          103/36000   réglé 2.861e-03 informé 2.861e-03 pénalité 1.00 [1.00, 1.00] 224s
+biais Z eta=10           tesseract          100/214000  réglé 4.673e-04 informé 4.252e-04 pénalité 1.10 [1.01, 1.20] 1088s
+biais Z eta=100          tesseract          100/322000  réglé 3.106e-04 informé 2.484e-04 pénalité 1.25 [1.14, 1.40] 1059s
+biais Z eta=1000         tesseract          100/350000  réglé 2.857e-04 informé 2.457e-04 pénalité 1.16 [1.08, 1.27] 1408s

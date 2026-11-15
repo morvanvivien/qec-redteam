@@ -1,0 +1,9 @@
+$ python -m redteam.duel --distance 3 --p 0.002 --scenario nominal "diaphonie ZZ 3p" --decoders pymatching tesseract mwpf --shots 60000 --seed 42
+nominal — d=3 p=0.002 base z — 60000 tirs, graine 42
+  pymatching         615 erreurs, 1.025e-02 [9.475e-03, 1.109e-02]
+  tesseract          525 erreurs, 8.750e-03 [8.036e-03, 9.527e-03] | tesseract/pymatching = 0.85 [0.81, 0.90], McNemar p = 8.3e-09
+  mwpf               529 erreurs, 8.817e-03 [8.099e-03, 9.597e-03] | mwpf/pymatching = 0.86 [0.81, 0.91], McNemar p = 4.4e-08
+diaphonie ZZ 3p — d=3 p=0.002 base z — 60000 tirs, graine 42
+  pymatching         641 erreurs, 1.068e-02 [9.891e-03, 1.154e-02]
+  tesseract          657 erreurs, 1.095e-02 [1.015e-02, 1.181e-02] | tesseract/pymatching = 1.02 [0.97, 1.08], McNemar p = 4.1e-01
+  mwpf               658 erreurs, 1.097e-02 [1.016e-02, 1.183e-02] | mwpf/pymatching = 1.03 [0.97, 1.09], McNemar p = 3.9e-01
